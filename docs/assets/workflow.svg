@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%" style="background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Background card color -->
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    
+    <!-- Outer borders -->
+    <linearGradient id="border-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" opacity="0.4" />
+      <stop offset="100%" stop-color="#1d4ed8" opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="border-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" opacity="0.4" />
+      <stop offset="100%" stop-color="#047857" opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="border-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" opacity="0.4" />
+      <stop offset="100%" stop-color="#6d28d9" opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background grid -->
+  <g opacity="0.03" stroke="#3b82f6" stroke-width="1">
+    <path d="M 0,40 L 800,40 M 0,80 L 800,80 M 0,120 L 800,120 M 0,160 L 800,160 M 0,200 L 800,200" />
+    <path d="M 80,0 L 80,240 M 160,0 L 160,240 M 240,0 L 240,240 M 320,0 L 320,240 M 400,0 L 400,240 M 480,0 L 480,240 M 560,0 L 560,240 M 640,0 L 640,240 M 720,0 L 720,240" />
+  </g>
+
+  <!-- Title description -->
+  <text x="400" y="25" fill="#94a3b8" font-size="11" font-weight="700" letter-spacing="2" text-anchor="middle">CODEX LITE CLI WORKFLOWS</text>
+
+  <!-- WORKFLOW 1: DOCUMENT -->
+  <g transform="translate(30, 45)">
+    <!-- Card Border & Background -->
+    <rect width="220" height="170" rx="8" fill="url(#card-grad)" stroke="url(#border-blue)" stroke-width="1.5" />
+    
+    <!-- Command Title -->
+    <rect x="15" y="15" width="55" height="18" rx="3" fill="#1e3a8a" />
+    <text x="42.5" y="27" fill="#60a5fa" font-size="10.5" font-family="monospace" font-weight="bold" text-anchor="middle">doc</text>
+    
+    <text x="15" y="52" fill="#e2e8f0" font-size="12" font-weight="bold">Document File</text>
+    <text x="15" y="68" fill="#94a3b8" font-size="10">Parses code and creates MD doc.</text>
+
+    <!-- CLI command helper -->
+    <rect x="15" y="85" width="190" height="24" rx="4" fill="#030712" stroke="#1f2937" stroke-width="1" />
+    <text x="25" y="101" fill="#3b82f6" font-size="9.5" font-family="monospace">&gt; <tspan fill="#cbd5e1">codex doc math.js</tspan></text>
+
+    <!-- Arrow down -->
+    <path d="M 110,117 L 110,131" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="2,2" />
+    
+    <!-- Output visual -->
+    <rect x="45" y="137" width="130" height="20" rx="3" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+    <circle cx="58" cy="147" r="3" fill="#60a5fa" />
+    <text x="70" y="151" fill="#cbd5e1" font-size="9" font-family="monospace">math_doc.md</text>
+  </g>
+
+  <!-- WORKFLOW 2: TEST -->
+  <g transform="translate(290, 45)">
+    <!-- Card Border & Background -->
+    <rect width="220" height="170" rx="8" fill="url(#card-grad)" stroke="url(#border-green)" stroke-width="1.5" />
+    
+    <!-- Command Title -->
+    <rect x="15" y="15" width="55" height="18" rx="3" fill="#064e3b" />
+    <text x="42.5" y="27" fill="#34d399" font-size="10.5" font-family="monospace" font-weight="bold" text-anchor="middle">test</text>
+    
+    <text x="15" y="52" fill="#e2e8f0" font-size="12" font-weight="bold">Scaffold Tests</text>
+    <text x="15" y="68" fill="#94a3b8" font-size="10">Builds runnable ESM unit tests.</text>
+
+    <!-- CLI command helper -->
+    <rect x="15" y="85" width="190" height="24" rx="4" fill="#030712" stroke="#1f2937" stroke-width="1" />
+    <text x="25" y="101" fill="#10b981" font-size="9.5" font-family="monospace">&gt; <tspan fill="#cbd5e1">codex test math.js</tspan></text>
+
+    <!-- Arrow down -->
+    <path d="M 110,117 L 110,131" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2,2" />
+
+    <!-- Output visual -->
+    <rect x="45" y="137" width="130" height="20" rx="3" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+    <circle cx="58" cy="147" r="3" fill="#34d399" />
+    <text x="70" y="151" fill="#cbd5e1" font-size="9" font-family="monospace">math.test.js</text>
+  </g>
+
+  <!-- WORKFLOW 3: REVIEW -->
+  <g transform="translate(550, 45)">
+    <!-- Card Border & Background -->
+    <rect width="220" height="170" rx="8" fill="url(#card-grad)" stroke="url(#border-purple)" stroke-width="1.5" />
+    
+    <!-- Command Title -->
+    <rect x="15" y="15" width="55" height="18" rx="3" fill="#581c87" />
+    <text x="42.5" y="27" fill="#a78bfa" font-size="10.5" font-family="monospace" font-weight="bold" text-anchor="middle">review</text>
+    
+    <text x="15" y="52" fill="#e2e8f0" font-size="12" font-weight="bold">Structure Review</text>
+    <text x="15" y="68" fill="#94a3b8" font-size="10">Runs quality checks &amp; scores.</text>
+
+    <!-- CLI command helper -->
+    <rect x="15" y="85" width="190" height="24" rx="4" fill="#030712" stroke="#1f2937" stroke-width="1" />
+    <text x="25" y="101" fill="#8b5cf6" font-size="9.5" font-family="monospace">&gt; <tspan fill="#cbd5e1">codex review math.js</tspan></text>
+
+    <!-- Arrow down -->
+    <path d="M 110,117 L 110,131" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="2,2" />
+
+    <!-- Output visual -->
+    <rect x="45" y="137" width="130" height="20" rx="3" fill="#1e293b" stroke="#a78bfa" stroke-width="1" />
+    <circle cx="58" cy="147" r="3" fill="#c084fc" />
+    <text x="70" y="151" fill="#cbd5e1" font-size="9" font-family="monospace">Health Score: 80/100</text>
+  </g>
+</svg>

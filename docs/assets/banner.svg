@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="100%" height="100%" style="background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a13" />
+      <stop offset="50%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#141a29" />
+    </linearGradient>
+
+    <!-- Text / Logo Gradient -->
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+
+    <!-- Decorative Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="220" fill="url(#bg-grad)" />
+
+  <!-- Grid Pattern Overlay -->
+  <g opacity="0.08">
+    <path d="M 0,20 L 800,20 M 0,40 L 800,40 M 0,60 L 800,60 M 0,80 L 800,80 M 0,100 L 800,100 M 0,120 L 800,120 M 0,140 L 800,140 M 0,160 L 800,160 M 0,180 L 800,180 M 0,200 L 800,200" stroke="#3b82f6" stroke-width="1" />
+    <path d="M 40,0 L 40,220 M 80,0 L 80,220 M 120,0 L 120,220 M 160,0 L 160,220 M 200,0 L 200,220 M 240,0 L 240,220 M 280,0 L 280,220 M 320,0 L 320,220 M 360,0 L 360,220 M 400,0 L 400,220 M 440,0 L 440,220 M 480,0 L 480,220 M 520,0 L 520,220 M 560,0 L 560,220 M 600,0 L 600,220 M 640,0 L 640,220 M 680,0 L 680,220 M 720,0 L 720,220 M 760,0 L 760,220" stroke="#3b82f6" stroke-width="1" />
+  </g>
+
+  <!-- Glowing background circles -->
+  <circle cx="120" cy="110" r="80" fill="#3b82f6" opacity="0.1" filter="url(#glow)" />
+  <circle cx="700" cy="110" r="50" fill="#2dd4bf" opacity="0.08" filter="url(#glow)" />
+
+  <!-- Logo brackets visual -->
+  <g transform="translate(60, 75)">
+    <!-- Outer brackets -->
+    <path d="M 25 10 L 5 35 L 25 60" fill="none" stroke="url(#primary-grad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 45 10 L 65 35 L 45 60" fill="none" stroke="url(#primary-grad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Central slash -->
+    <line x1="39" y1="15" x2="31" y2="55" stroke="#2dd4bf" stroke-width="4.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Title Text -->
+  <text x="150" y="112" fill="url(#primary-grad)" font-size="44" font-weight="900" letter-spacing="3">CODEX LITE</text>
+
+  <!-- Subtitle Text -->
+  <text x="152" y="142" fill="#94a3b8" font-size="14" font-weight="500" letter-spacing="1.5">ZERO-DEPENDENCY DEVELOPER COMPANION CLI</text>
+
+  <!-- Tiny Tech Info badge -->
+  <rect x="152" y="160" width="128" height="20" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <circle cx="162" cy="170" r="3" fill="#2dd4bf" />
+  <text x="172" y="174" fill="#cbd5e1" font-size="9" font-weight="700" letter-spacing="0.5" font-family="monospace">v0.1.0-prototype</text>
+
+  <rect x="290" y="160" width="85" height="20" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="300" y="174" fill="#cbd5e1" font-size="9" font-weight="700" letter-spacing="0.5" font-family="monospace">node &gt;= 16</text>
+
+  <!-- Tech Dots / Lines decoration on the right -->
+  <g stroke="#334155" stroke-width="1" opacity="0.6">
+    <line x1="560" y1="110" x2="630" y2="110" />
+    <line x1="630" y1="110" x2="650" y2="90" />
+    <line x1="650" y1="90" x2="720" y2="90" />
+    <line x1="630" y1="110" x2="650" y2="130" />
+    <line x1="650" y1="130" x2="700" y2="130" />
+  </g>
+  <g fill="#475569">
+    <circle cx="560" cy="110" r="3.5" fill="#3b82f6" />
+    <circle cx="720" cy="90" r="3" fill="#2dd4bf" />
+    <circle cx="700" cy="130" r="3" fill="#2dd4bf" />
+  </g>
+</svg>

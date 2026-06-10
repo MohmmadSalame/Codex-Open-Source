@@ -1,27 +1,87 @@
-# Codex Lite
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="Codex Lite Banner" width="100%" />
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-blue.svg)](https://nodejs.org)
+<p align="center">
+  <strong>A zero-dependency developer companion CLI tool to automate code documentation, scaffold unit tests, and review code structure locally or with OpenAI.</strong>
+</p>
 
-**Codex Lite** is a lightweight, zero-dependency developer companion CLI tool designed to automate code documentation, scaffold unit tests, and review code structure. It works entirely offline using rule-based parsing and can optionally connect to the OpenAI API for intelligent, LLM-powered suggestions.
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D16.0.0-blue.svg" alt="Node.js Version" /></a>
+  <img src="https://img.shields.io/badge/Status-Prototype-orange.svg" alt="Status: Prototype" />
+</p>
 
+---
+
+## Project Status
 > [!IMPORTANT]
-> **Project Status: Early-Stage Prototype**
-> This repository is currently an early-stage open-source prototype (`v0.1.0-prototype`) undergoing public review. It is not yet ready for production environments.
+> **Project Stage: Early Prototype (`v0.1.0-prototype`)**  
+> Codex Lite is an early-stage open-source prototype undergoing active review. It is not currently intended or suitable for production environments.
+
+---
+
+## Table of Contents
+- [What It Does](#what-it-does)
+- [Why Codex Lite?](#why-codex-lite)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+- [Usage Examples](#usage-examples)
+- [Architecture and Design](#architecture-and-design)
+- [Current Limitations](#current-limitations)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
 ## What It Does
-Codex Lite scans JavaScript, TypeScript, and Python source files to extract functions, classes, imports, and block comments. It performs three primary tasks:
+Codex Lite scans JavaScript and Python source files to extract functions, classes, imports, and block comments, running the following tasks:
+
 1. **`doc`**: Generates a clean Markdown documentation summary of all exported structures and internal functions.
 2. **`test`**: Automatically scaffolds a boilerplate unit test file targeting the file's API surface.
 3. **`review`**: Evaluates files against static structure rules (e.g., function length, lack of comments, nested complexity) and provides code health scores.
 
-## Why It Exists
-We believe that AI-assisted code tools should be transparent, lightweight, and accessible. Codex Lite serves as a modular prototype showcasing:
-- How developer workflows (docs, tests, analysis) can be unified in a zero-dependency package.
-- How rule-based parsers can serve as a fast local fallback for AI-driven development.
-- Clean integration with OpenAI's API models.
+<p align="center">
+  <img src="docs/assets/workflow.svg" alt="Codex Lite Workflow" width="100%" />
+</p>
+
+---
+
+## Why Codex Lite?
+We believe that AI-assisted coding tools should be transparent, lightweight, and accessible:
+- **Zero Runtime Dependencies**: The tool is written in pure vanilla Node.js using standard library modules. No bloated node_modules or heavy library trees.
+- **Fast Rule-Based Fallback**: Offline static rules act as a swift parser and review tool without needing an internet connection or incurring LLM API costs.
+- **Modulated AI Integration**: A clean, single-file broker requests smart outputs from OpenAI's API when configured, without relying on complex, heavy frameworks.
+
+---
+
+## Repository Structure
+Below is an overview of the key folders and files in the repository:
+
+```text
+Codex-Open-Source/
+├── bin/
+│   └── codex.js          # CLI executable entry point
+├── docs/
+│   └── assets/           # Visual SVG diagrams
+│       ├── architecture.svg
+│       ├── banner.svg
+│       └── workflow.svg
+├── examples/
+│   └── math.js           # Demo JavaScript file
+├── src/
+│   ├── generator.js      # Logic for docs & test scaffolding
+│   ├── llm.js            # OpenAI HTTPS client broker
+│   ├── parser.js         # Lexical regex code parser
+│   └── reviewer.js       # Offline quality and rules engine
+├── package.json          # Node configuration module
+├── LICENSE               # MIT License terms
+├── README.md             # This document
+├── CONTRIBUTING.md       # Contributing guidelines
+├── ROADMAP.md            # Project milestones
+└── CHANGELOG.md          # Version log tracker
+```
 
 ---
 
@@ -29,7 +89,7 @@ We believe that AI-assisted code tools should be transparent, lightweight, and a
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) version 16.0.0 or higher.
-- No heavy package installations or standard NPM dependencies required.
+- Zero NPM package installations or external runtime dependencies required.
 
 ### Installation
 Clone the repository:
@@ -37,8 +97,6 @@ Clone the repository:
 git clone https://github.com/MohmmadSalame/Codex-Open-Source.git
 cd Codex-Open-Source
 ```
-
-You can run Codex Lite directly using Node.js or link it globally for local development.
 
 ---
 
@@ -79,16 +137,29 @@ OPENAI_API_KEY="your-api-key" node bin/codex.js doc examples/math.js --ai
 ---
 
 ## Architecture and Design
+
+<p align="center">
+  <img src="docs/assets/architecture.svg" alt="Codex Lite Architecture" width="100%" />
+</p>
+
 Codex Lite is split into four distinct modules under `src/`:
-- [parser.js](file:///C:/Projects/Codex-Open-Source/src/parser.js): A lightweight regex lexer extracting functions, classes, and parameter structures.
-- [reviewer.js](file:///C:/Projects/Codex-Open-Source/src/reviewer.js): Static code check engine mapping lines to rule violations.
-- [generator.js](file:///C:/Projects/Codex-Open-Source/src/generator.js): Formats internal node trees into documentation tables or test boilerplates.
-- [llm.js](file:///C:/Projects/Codex-Open-Source/src/llm.js): Handles HTTP connections to the OpenAI API without external library overhead.
+- [parser.js](src/parser.js): A lightweight regex lexer extracting functions, classes, and parameter structures.
+- [reviewer.js](src/reviewer.js): Static code check engine mapping lines to rule violations.
+- [generator.js](src/generator.js): Formats internal node trees into documentation tables or test boilerplates.
+- [llm.js](src/llm.js): Handles HTTP connections to the OpenAI API without external library overhead.
+
+---
+
+## Current Limitations
+Since Codex Lite is an early-stage prototype, it currently operates under the following constraints:
+- **Lexical Parsing Only**: The current parser uses regular expressions rather than a fully-featured Abstract Syntax Tree (AST). Complex constructs (such as object destructuring parameters, multiline parameters, or nested classes) may not be parsed with complete accuracy.
+- **Limited Languages**: It currently supports JavaScript and Python source files only.
+- **Node.js Test Framework**: Scaffolding test files relies specifically on the built-in `node:test` framework introduced in Node 18, and is not yet customizable to alternate testing frameworks (e.g., Jest or Vitest).
 
 ---
 
 ## Roadmap
-For the full plan and milestones, see [ROADMAP.md](file:///C:/Projects/Codex-Open-Source/ROADMAP.md).
+For the full plan and milestones, see [ROADMAP.md](ROADMAP.md).
 - **v0.1.0** (Current): Core rule-based engine, CLI wrapper, and basic static review.
 - **v0.2.0**: AST parsing using standard lightweight parser, expanded language support (Go/Rust).
 - **v0.3.0**: Bi-directional syncing (updating code directly based on generated doc edits).
@@ -96,9 +167,9 @@ For the full plan and milestones, see [ROADMAP.md](file:///C:/Projects/Codex-Ope
 ---
 
 ## Contributing
-We welcome contributions to Codex Lite! Please see [CONTRIBUTING.md](file:///C:/Projects/Codex-Open-Source/CONTRIBUTING.md) for guidelines on how to submit pull requests, report issues, and suggest features.
+We welcome contributions to Codex Lite! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to submit pull requests, report issues, and suggest features.
 
 ---
 
 ## License
-Distributed under the MIT License. See [LICENSE](file:///C:/Projects/Codex-Open-Source/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.

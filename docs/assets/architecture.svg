@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="100%" height="100%" style="background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Card Gradients -->
+    <linearGradient id="cli-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <linearGradient id="parser-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6d28d9" />
+    </linearGradient>
+
+    <linearGradient id="core-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <linearGradient id="ai-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e11d48" />
+      <stop offset="100%" stop-color="#9f1239" />
+    </linearGradient>
+
+    <linearGradient id="output-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+
+    <!-- Arrow Markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 5 L 0 8.5 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 5 L 0 8.5 z" fill="#60a5fa" />
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 5 L 0 8.5 z" fill="#a78bfa" />
+    </marker>
+    <marker id="arrow-ai" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 5 L 0 8.5 z" fill="#fda4af" />
+    </marker>
+  </defs>
+
+  <!-- Background Grid (slight opacity) -->
+  <g opacity="0.04" stroke="#3b82f6" stroke-width="1">
+    <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300" />
+    <path d="M 100,0 L 100,350 M 200,0 L 200,350 M 300,0 L 300,350 M 400,0 L 400,350 M 500,0 L 500,350 M 600,0 L 600,350 M 700,0 L 700,350" />
+  </g>
+
+  <!-- Architecture Flow -->
+
+  <!-- 1. Source File / CLI Input -->
+  <g transform="translate(30, 140)">
+    <rect width="130" height="70" rx="8" fill="url(#cli-grad)" />
+    <text x="65" y="32" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">CLI Interface</text>
+    <text x="65" y="48" fill="#bfdbfe" font-size="10" font-family="monospace" text-anchor="middle">bin/codex.js</text>
+    <text x="65" y="60" fill="#93c5fd" font-size="9" text-anchor="middle">doc | test | review</text>
+  </g>
+
+  <!-- Connection: CLI -> Parser -->
+  <path d="M 160,175 L 210,175" fill="none" stroke="#60a5fa" stroke-width="2.5" marker-end="url(#arrow-blue)" />
+
+  <!-- 2. Lexical Parser -->
+  <g transform="translate(220, 140)">
+    <rect width="130" height="70" rx="8" fill="url(#parser-grad)" />
+    <text x="65" y="32" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">Lexical Parser</text>
+    <text x="65" y="48" fill="#ddd6fe" font-size="10" font-family="monospace" text-anchor="middle">src/parser.js</text>
+    <text x="65" y="60" fill="#c084fc" font-size="9" text-anchor="middle">Regex AST Fallback</text>
+  </g>
+
+  <!-- Decision Fork: Local vs AI -->
+  <path d="M 350,175 L 390,175" fill="none" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrow-purple)" />
+  <circle cx="392" cy="175" r="4.5" fill="#a78bfa" />
+
+  <!-- Arrow up to OpenAI API Integration -->
+  <path d="M 392,170.5 L 392,75 L 430,75" fill="none" stroke="#fda4af" stroke-width="2.5" stroke-dasharray="3,3" marker-end="url(#arrow-ai)" />
+  <text x="345" y="65" fill="#f43f5e" font-size="9.5" font-weight="bold">AI Mode (--ai)</text>
+
+  <!-- Arrow down to Local Engines -->
+  <path d="M 392,179.5 L 392,275 L 430,275" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow)" />
+  <text x="340" y="295" fill="#0ea5e9" font-size="9.5" font-weight="bold">Local Mode (Default)</text>
+
+  <!-- 3. OpenAI Client (AI Mode) -->
+  <g transform="translate(440, 40)">
+    <rect width="150" height="70" rx="8" fill="url(#ai-grad)" />
+    <text x="75" y="32" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">OpenAI Client</text>
+    <text x="75" y="48" fill="#fecdd3" font-size="10" font-family="monospace" text-anchor="middle">src/llm.js</text>
+    <text x="75" y="60" fill="#fda4af" font-size="9" text-anchor="middle">HTTPS Request Broker</text>
+  </g>
+
+  <!-- 4. Local Reviewer & Generator -->
+  <g transform="translate(440, 240)">
+    <rect width="150" height="70" rx="8" fill="url(#core-grad)" />
+    <text x="75" y="28" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Offline Core</text>
+    <text x="75" y="44" fill="#e0f2fe" font-size="9.5" font-family="monospace" text-anchor="middle">reviewer.js | generator.js</text>
+    <text x="75" y="58" fill="#7dd3fc" font-size="9.5" text-anchor="middle">Rule Engine &amp; Templates</text>
+  </g>
+
+  <!-- Connections to Outputs -->
+  <!-- AI -> Output -->
+  <path d="M 590,75 L 630,75 L 630,140" fill="none" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)" opacity="0.8" />
+  <!-- Local -> Output -->
+  <path d="M 590,275 L 630,275 L 630,210" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)" opacity="0.8" />
+
+  <!-- 5. Output Files -->
+  <g transform="translate(640, 115)">
+    <rect width="130" height="120" rx="8" fill="url(#output-grad)" />
+    <text x="65" y="26" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">Artifact Output</text>
+    
+    <rect x="15" y="42" width="100" height="18" rx="3" fill="#045d43" opacity="0.5" />
+    <text x="65" y="54" fill="#a7f3d0" font-size="9.5" font-family="monospace" text-anchor="middle">file_doc.md</text>
+
+    <rect x="15" y="66" width="100" height="18" rx="3" fill="#045d43" opacity="0.5" />
+    <text x="65" y="78" fill="#a7f3d0" font-size="9.5" font-family="monospace" text-anchor="middle">file.test.js</text>
+
+    <rect x="15" y="90" width="100" height="18" rx="3" fill="#045d43" opacity="0.5" />
+    <text x="65" y="102" fill="#a7f3d0" font-size="9.5" text-anchor="middle">Quality Report</text>
+  </g>
+</svg>
