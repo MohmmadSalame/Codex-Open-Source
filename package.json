@@ -1,0 +1,27 @@
+{
+  "name": "codex-lite",
+  "version": "0.1.0-prototype",
+  "description": "A lightweight, zero-dependency developer-tool CLI to generate code documentation, draft tests, and review code structure locally or with OpenAI.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "codex": "./bin/codex.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "test": "node bin/codex.js review examples/math.js"
+  },
+  "keywords": [
+    "codex",
+    "openai",
+    "developer-tools",
+    "documentation",
+    "static-analysis",
+    "unit-testing"
+  ],
+  "author": "Mohmmad Salame",
+  "license": "MIT",
+  "dependencies": {}
+}
